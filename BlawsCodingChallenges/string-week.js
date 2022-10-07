@@ -113,24 +113,14 @@ function chooseFinalists(str) {
 		return str.charAt(midChar) !== 'e'
 	}
 	const evenLowerCaseChars = (str) => {
-		let count = 0
-		for (let i = 0; i < str.length; i++) {
-			const char = str.charAt(i)
-			if (char === char.toLowerCase()) {
-				count++
-			}
-		}
-		return !(count % 2)
+		let count = 0;
+    [...str].forEach(char => char === char.toLowerCase() ? count++ :  null); //Incrementing count for every Lower case character
+		return !(count % 2);
 	}
 	const twoUpperCaseChars = (str) => {
-		let count = 0
-		for (let i = 0; i < str.length; i++) {
-			const char = str.charAt(i)
-			if (char === char.toUpperCase()) {
-				count++
-			}
-		}
-		return count >= 2
+		let count = 0;
+    [...str].forEach(char => char === char.toUpperCase() ? count++ : null); //Incrementing count for every Upper case character
+		return count >= 2;
 	}
 	const noCapitalS = (str) => !str.includes('S')
 
