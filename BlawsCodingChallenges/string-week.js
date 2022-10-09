@@ -149,6 +149,91 @@ function reverseString(str) {
 // 	)
 // )
 
+<<<<<<< HEAD
+=======
+function decodeHiddenMessage(str) {
+	console.log(reverseString(replaceKeyChars(fixMixUps(str))))
+}
+
+// decodeHiddenMessage(
+// 	'e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs'
+// )
+
+function chooseFinalists(str) {
+	const noLeadingTrailingSpaces = (str) =>
+		str.charAt(0) !== ' ' && str.charAt(str.length - 1) !== ' '
+
+	const canineTrolling = (str) => {
+		const lowerCaseStr = str.toLowerCase()
+		return (
+			!lowerCaseStr.includes('dog') &&
+			!lowerCaseStr.includes('bark') &&
+			!lowerCaseStr.includes('bone')
+		)
+	}
+
+	const noMultiplesOfFive = (str) => str.length % 5 !== 0
+
+	const oddCharCode = (str) => {
+		let sum = str.charCodeAt(0) + str.charCodeAt(str.length - 1)
+		return sum % 2 !== 0
+	}
+
+	const midCharNotE = (str) => {
+		const midChar = Math.ceil(str.length / 2)
+		console.log(midChar)
+		return str.charAt(midChar) !== 'e'
+	}
+
+	const evenLowerCaseChars = (str) => {
+		str = str.replace(/[^\p{L}\p{N}\s]/gu, '')
+
+		let count = 0
+		for (let i = 0; i < str.length; i++) {
+			const char = str.charAt(i)
+			if (char !== ' ' && char === char.toLowerCase()) {
+				count++
+			}
+		}
+		return !(count % 2)
+	}
+
+	const twoUpperCaseChars = (str) => {
+		let count = 0
+		for (let i = 0; i < str.length; i++) {
+			const char = str.charAt(i)
+			if (char !== ' ' && char === char.toUpperCase()) {
+				count++
+			}
+		}
+		return count >= 2
+	}
+
+	const noCapitalS = (str) => !str.includes('S')
+
+	return str
+		.split(',')
+		.filter(
+			(submission) =>
+				noLeadingTrailingSpaces(submission) &&
+				canineTrolling(submission) &&
+				noMultiplesOfFive(submission) &&
+				oddCharCode(submission) &&
+				midCharNotE(submission) &&
+				evenLowerCaseChars(submission) &&
+				twoUpperCaseChars(submission) &&
+				twoUpperCaseChars(submission) &&
+				noCapitalS(submission)
+		).length
+}
+
+console.log(
+	chooseFinalists(
+		"The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood"
+	)
+)
+
+>>>>>>> 46bd6ea89770dfbdccb216210c4b0d8eff40742c
 // ['Teenage Mewtant Ninja Turtles', 'Rick & Meowty', "Mewster Rogers' Neighborhood"]
 
 function removeEveryXthCharacter(str, x = 3) {
