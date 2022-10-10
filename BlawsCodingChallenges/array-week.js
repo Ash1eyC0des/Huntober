@@ -70,3 +70,15 @@ function moveRight(arr, val) {
 
 const myArray = ['abc', 'xyz', 1, 2, 'Hey!']
 // console.log(moveRight(myArray, 2))
+
+// Day 3
+function moveThingsAround(arr) {
+	const containA = arr.filter((str) => str.includes('a'))
+	const fourChars = arr.filter((str) => !str.includes('a') && str.length > 3)
+	const allOthers = arr.filter((str) => !str.includes('a') && str.length <= 3)
+
+	return containA.concat(allOthers, fourChars)
+}
+
+const myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
+// console.log(moveThingsAround(myArr))
