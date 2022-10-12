@@ -140,3 +140,22 @@ const myGrid = [
 ]
 
 // console.log(moveDownOneRow(myGrid, 'e'))
+
+// Day 5
+function shuffleNestedArray(array) {
+	const arrLength = array.length
+	let flatArr = array.flat()
+	for (var i = flatArr.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1))
+		var temp = flatArr[i]
+		flatArr[i] = flatArr[j]
+		flatArr[j] = temp
+	}
+	return new Array(arrLength)
+		.fill(' ')
+		.map((_, i) => flatArr.slice(i * arrLength, (i + 1) * arrLength))
+}
+
+console.log(shuffleNestedArray(myGrid))
+
+// Day 6 CodePen Link: https://codepen.io/Ash1eyC0des/pen/RwyOxXd
